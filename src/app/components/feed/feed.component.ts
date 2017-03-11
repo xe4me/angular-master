@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 
 @Component({
     selector: 'feed',
@@ -6,6 +6,7 @@ import {Component} from "@angular/core";
     styleUrls: ['./feed.component.css']
 })
 export class FeedComponent {
+    @Input('text') text;
     private feed: number;
 
     constructor() {
@@ -13,6 +14,6 @@ export class FeedComponent {
     }
 
     get randomFeed(): string {
-        return 'feed #' + this.feed;
+        return this.text || 'feed #' + this.feed;
     }
 }
