@@ -1,10 +1,11 @@
 <h3>Here are some feeds</h3>
 <ul>
+    <feed *ngIf="showFirstFeed" (click)="onClick()"></feed>
     <feed [text]="'This text is coming from parent'" (click)="onClick()"></feed>
-    <feed> (click)="onClick()"</feed>
     <feed [text]="'This text is also coming from parent'" (click)="onClick()"></feed>
     <feed (click)="onClick()"></feed>
 </ul>
+<button (click)="removeFirstFeed()">Destroy first feed</button>
 
 
 

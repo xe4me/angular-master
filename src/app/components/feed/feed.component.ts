@@ -1,29 +1,23 @@
-import {Component, Input, OnInit, OnChanges, SimpleChange, SimpleChanges, DoCheck} from "@angular/core";
+import {Component, Input, OnInit, OnChanges, SimpleChange, SimpleChanges, DoCheck, OnDestroy} from "@angular/core";
 
 @Component({
     selector: 'feed',
     templateUrl: './feed.component.html',
     styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit, OnChanges, DoCheck {
+export class FeedComponent implements OnDestroy {
     @Input('text') text;
     private feed: number;
 
     constructor() {
         this.feed = Math.floor(Math.random() * 100);
+        console.log('Creating FeedComponent with feed#' + this.feed);
     }
 
-    ngOnChanges(change: SimpleChanges): void {
-        console.log('FeedComponent ngOnChanges', change);
+    ngOnDestroy(): void {
+        console.log(`FeedComponent feed #${this.feed} about to be destroyed`);
     }
 
-    ngOnInit(): void {
-        console.log('FeedComponent Initialized ');
-    }
-
-    ngDoCheck(): void {
-        console.log('FeedComponent ngDoCheck %%% ');
-    }
 
     get randomFeed(): string {
         return this.text || 'feed #' + this.feed;

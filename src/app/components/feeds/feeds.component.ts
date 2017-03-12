@@ -6,9 +6,14 @@ import {Component} from "@angular/core";
     styleUrls: ['./feeds.component.css']
 })
 export class FeedsComponent {
+    private showFirstFeed: boolean = true;
 
     onClick() {
         alert('You clicked on a feed');
+    }
+
+    removeFirstFeed() {
+        this.showFirstFeed = !this.showFirstFeed;
     }
 
 }
