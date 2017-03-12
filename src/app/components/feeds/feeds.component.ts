@@ -8,6 +8,11 @@ import {Component} from "@angular/core";
 export class FeedsComponent {
 
     constructor() {
+        console.log('FeedsComponent constructed ++++++ ');
+    }
+
+    ngOnInit() {
+        console.log('FeedsComponent initialized ++++++ ');
     }
 
     onClick() {
