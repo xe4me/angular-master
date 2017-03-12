@@ -1,11 +1,11 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, Input, OnInit, OnChanges, SimpleChange, SimpleChanges} from "@angular/core";
 
 @Component({
     selector: 'feed',
     templateUrl: './feed.component.html',
     styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges {
     @Input('text') text;
     private feed: number;
 
@@ -16,6 +16,10 @@ export class FeedComponent implements OnInit {
 
     ngOnInit(): void {
         console.log('FeedComponent Initialized ');
+    }
+
+    ngOnChanges(change: SimpleChanges): void {
+        console.log('FeedComponent ngOnChanges', change);
     }
 
     get randomFeed(): string {
