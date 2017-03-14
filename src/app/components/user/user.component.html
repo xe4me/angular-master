@@ -1,0 +1,23 @@
+<div *ngFor="let user of users.controls">
+    <div>
+        <input type="text" name="name" placeholder="name" [formControl]="user.controls['name']">
+        <span *ngIf="user.controls['name'].errors?.required">This field is required</span>
+        <span *ngIf="user.controls['name'].errors?.minlength">The min length is 10</span>
+        <span *ngIf="user.controls['name'].errors?.invalidName">This name sucks</span>
+    </div>
+
+    <input type="text" name="age" placeholder="age" [formControl]="user.controls['age']">
+    <div *ngFor="let number of user.controls['numbers'].controls">
+        <input type="text" name="number" placeholder="your number" [formControl]="number">
+    </div>
+    <button (click)="addPhoneNumber(user)">Add number </button>
+    <button (click)="removePhoneNumber(user)">remove number </button>
+</div>
+<button (click)="addUser()">Add +</button>
+<button (click)="removeUser()">Remove -</button>
+
+<pre>
+    <code>
+        {{ users.value | json }}
+    </code>
+</pre>
