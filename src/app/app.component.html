@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<nav>
+    <a [routerLink]=" ['./'] ">
+        Index
+    </a>
+    <a [routerLink]=" ['./home'] ">
+        Home
+    </a>
+    <a [routerLink]=" ['./detail'] ">
+        Detail
+    </a>
+    <a [routerLink]=" ['./about'] ">
+        About
+    </a>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+
+
+
+<!--
+routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+
+-->

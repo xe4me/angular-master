@@ -1,23 +1,31 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
-import {MaterialModule} from '@angular/material';
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
+import {HttpModule} from "@angular/http";
+import {NgModule} from "@angular/core";
+import {RouterModule, PreloadAllModules} from "@angular/router";
+import {ROUTES} from "./app.routes";
+import {AppComponent} from "./app.component";
+import {HomeComponent} from "./home";
+import {AboutComponent} from "./about";
+import {NoContentComponent} from "./no-content";
 
-import {AppComponent} from './app.component';
 
 @NgModule({
+    bootstrap: [AppComponent],
     declarations: [
-        AppComponent
+        AppComponent,
+        AboutComponent,
+        HomeComponent,
+        NoContentComponent
     ],
     imports: [
-        MaterialModule,
         BrowserModule,
         FormsModule,
-        HttpModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+        HttpModule,
+        RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
+    ]
 })
 export class AppModule {
+
 }
+
