@@ -1,0 +1,3 @@
+div /deep/ .mat-menu-ripple{
+    background: red !important;
+}
