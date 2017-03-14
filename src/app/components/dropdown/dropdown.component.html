@@ -1,0 +1,13 @@
+<ul>
+    <li *ngFor="let item of items">
+        <div *ngIf="template">
+            <template
+                    [ngTemplateOutlet]="template"
+                    [ngOutletContext]="{item:item}">
+            </template>
+        </div>
+        <div *ngIf="!template">
+            {{ item.label }}
+        </div>
+    </li>
+</ul>
