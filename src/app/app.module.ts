@@ -5,10 +5,15 @@ import {HttpModule} from '@angular/http';
 import {MaterialModule} from '@angular/material';
 
 import {AppComponent} from './app.component';
+import {PopupComponent} from "./components/popup/popup.component";
+import {AlertComponent} from "./components/alert/alert.component";
+
+const DYNAMIC_COMPONENTS = [PopupComponent, AlertComponent];
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        ...DYNAMIC_COMPONENTS
     ],
     imports: [
         MaterialModule,
@@ -17,6 +22,7 @@ import {AppComponent} from './app.component';
         HttpModule
     ],
     providers: [],
+    entryComponents: DYNAMIC_COMPONENTS,
     bootstrap: [AppComponent]
 })
 export class AppModule {
